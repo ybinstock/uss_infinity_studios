@@ -1,0 +1,216 @@
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
+
+  <script src="app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="description" content="USS Infinity Studios" />
+  <meta name="keywords" content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, WebVR Resume, virtual reality">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>USS Infinity Studios</title>
+</head>
+
+<body>
+
+
+<a-scene>
+  <a-assets>
+    <img id="sky" src="stars.jpg">
+    <a-asset-item id="planet" src="planet2/scene.gltf"></a-asset-item>
+    <a-asset-item id="terminal" src="computer_terminal/scene.gltf"></a-asset-item>
+    <a-asset-item id="button" src="button/scene.gltf"></a-asset-item>
+    <a-asset-item id="comms" src="speaker/scene.gltf"></a-asset-item>
+
+
+    <img id="ground" src="textures/floor1.jpg">
+    <img id="ceiling" src="textures/wall3.jpg">
+    <img id="left-wall" src="textures/wall1.jpg">
+    <img id="right-wall" src="textures/wall1.jpg">
+    <img id="back-wall" src="textures/wall1.jpg">
+
+    <audio id="teleportation-script" src="audio/teleportation.mp3"></audio>
+    <audio id="hyperdrive-script" src="audio/hyperdrive.mp3"></audio>
+    <audio id="comms-script" src="audio/comms.mp3"></audio>
+    <audio id="planet-info-script" src="audio/planet.mp3"></audio>
+    <audio id="mission-script" src="audio/mission.mp3"></audio>
+    <audio id="lasers-script" src="audio/lasers.mp3"></audio>
+    <audio id="commander-script" src="audio/commander.mp3"></audio>
+    <audio id="self-desctruct-script" src="audio/destruct.mp3"></audio>
+
+  </a-assets>
+
+  <!--camera/cursor-->
+  <a-entity position="0 0 -.7">
+    <a-camera fuse="true" fuseTimeout="500" wasd-controls-enabled="false">
+      <a-entity cursor raycaster="far: 30; objects: .intersectable" geometry="primitive: ring; radiusOuter: 0.03;
+                              radiusInner: 0.01; segmentsTheta: 32" material="color: green; shader: flat"
+                position="0 0 -1.0"></a-entity>
+    </a-camera>
+  </a-entity>
+
+  <!--Sky-->
+  <a-sky src="#sky"></a-sky>
+
+  <!--Planet-->
+  <a-entity gltf-model-next="#planet" position="0 2 -8" scale=".001 .001 .001">
+    <a-animation attribute="rotation"
+                 dur="50000"
+                 fill="forwards"
+                 to="0 360 0"
+                 repeat="indefinite"></a-animation>
+  </a-entity>
+
+  <!--Bridge-->
+  <a-entity>
+
+    <!--back wall-->
+    <a-entity>
+      <a-plane src="#back-wall" height="10" width="10" rotation="180 0 0" position="0 5 3" repeat="5 5"></a-plane>
+    </a-entity>
+
+    <!--left wall-->
+    <a-entity>
+      <a-plane src="#left-wall" height="10" width="10" rotation="180 -90 0" position="-5 5 0" repeat="5 5"></a-plane>
+
+    </a-entity>
+
+    <!--right wall-->
+    <a-entity>
+      <a-plane src="#right-wall" height="10" width="10" rotation="180 90 0" position="5 5 0" repeat="5 5"></a-plane>
+    </a-entity>
+
+    <!--floor-->
+    <a-entity>
+      <a-plane src="#ground" height="10" width="10" rotation="-90 0 0" repeat="5 5"></a-plane>
+    </a-entity>
+
+    <!--ceiling-->
+    <a-entity>
+      <a-plane src="#ceiling" height="10" width="10" rotation="90 0 0" position="0 4 0" repeat="5 5"></a-plane>
+    </a-entity>
+
+  </a-entity>
+
+  <!--Terminal-->
+  <a-entity>
+    <a-entity gltf-model-next="#terminal" position="0 0 -2" scale=".4 .4 .4"></a-entity>
+
+    <!--Teleportation-->
+    <a-entity position="-1.72 1.06 -2.57" class="teleport">
+      <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Teleport" position="-.02 0 0.05"></a-entity>
+      </a-box>
+
+      <a-cylinder position="0 -.17 0" color="yellow" height=".2" radius=".1" class="intersectable" cursor-listener
+                  sound__1="on: mouseenter; src: #teleportation-script;"
+                  sound__2="on: click; src: #teleportation-script;"></a-cylinder>
+    </a-entity>
+
+
+    <!--Hyperdrive-->
+    <a-entity position="1.72 1.06 -2.57" class="hyperdrive">
+      <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Hyperdrive" position="-.02 0 0.05"></a-entity>
+      </a-box>
+      <a-entity gltf-model-next="#button" scale=".2 .2 .2" class="intersectable" position="0 -.08 0" cursor-listener
+                sound__1="on: mouseenter; src: #hyerdrive-script;"
+                sound__2="on: click; src: #hyerdrive-script;"></a-entity>
+    </a-entity>
+
+
+    <!--Comms-->
+    <a-entity position="-1.4 1.06 -1.6" class="comms">
+      <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Comms" position="-.02 0 0.05"></a-entity>
+      </a-box>
+
+      <a-entity gltf-model-next="#comms" scale=".05 .05 .05" rotation="0 45 0" position="0 -0.1 0.05"
+                class="intersectable" cursor-listener
+                sound__1="on: mouseenter; src: #comms-script;"
+                sound__2="on: click; src: #comms-script;"></a-entity>
+    </a-entity>
+
+
+    <!--Planetary Information-->
+
+    <a-entity position="-1.0 1.06 -2.07" class="planet">
+      <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Planet Info" position="-.02 0 0.05"></a-entity>
+      </a-box>
+      <a-triangle scale=".2 .2 .2" rotation="-90 0 0" color="orange" class="intersectable" position="0.1 -.08 .10"
+                  cursor-listener
+                  sound__1="on: mouseenter; src: #plant-info-script;"
+                  sound__2="on: click; src: #planet-info-script;"></a-triangle>
+    </a-entity>
+
+
+    <!--Lasers-->
+    <a-entity position="1.4 1.06 -1.6" class='lasers'>
+
+      <a-sphere class="intersectable" radius=".1" position="0 -.15 0" color="red" cursor-listener
+                sound__1="on: mouseenter; src: #lasers-script;"
+                sound__2="on: click; src: #lasers-script;"></a-sphere>
+
+      <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Lasers" position="-.02 0 0.05"></a-entity>
+      </a-box>
+    </a-entity>
+
+    <!--Commander Information-->
+    <a-entity position="0 1. -1.5" class="cmndr">
+      <a-entity text="align: center; color:black;value: Commander Yoni Binstock\n @Yoni Binstock\n ybinstock@gmail.com"
+                position="0 -0.04 .15"></a-entity>
+    </a-entity>
+
+    <!--Self Destruct-->
+    <a-entity position="1.0 1.06 -2.07" class='self-destruct'>
+      <a-box depth=".2" height=".1" width="0.15" color="black" class="intersectable" cursor-listener position="0 -.13 0"
+                sound__1="on: mouseenter; src: #self-destruct-script;"
+                sound__2="on: click; src: #self-destruct-script;"></a-box>
+
+      <a-box color="white" depth=".1" height=".1" width="0.3" rotation="-30 0 0" position="0 -.08 -.2">
+        <a-entity text="align: center; color:black;value: Self Destruct" position="-.02 0 0.05"></a-entity>
+      </a-box>
+    </a-entity>
+
+    <!--Prior Missions-->
+    <a-entity position="0 2 -3">
+
+      <!--Screen-->
+      <a-entity>
+
+      </a-entity>
+
+      <!--Next button-->
+      <a-sphere color="green" position=".586 -1.03 .603" radius=".1" id="nextBtn">
+
+      </a-sphere>
+
+      <!--Previous button-->
+      <a-sphere color="yellow" position=".396 -1.03 .603" radius=".1" id="previousBtn">
+
+      </a-sphere>
+
+      <a-entity text="color:black;value:Prior Missions" position="0.374 -0.492 0.042" rotation="-45 0 0"></a-entity>
+
+    </a-entity>
+
+
+  </a-entity>
+
+
+</a-scene>
+</body>
+</html>
+
+<!--example-->
+<!--http://vr.lasershop.ca/-->
+<!--https://tbaloo.com/-->
+
+<!--Text to voice software-->
+
+<!--http://onlinetonegenerator.com/voice-generator.html-->
+<!--http://www.cepstral.com/en/demos-->
+<!--http://www.fromtexttospeech.com/-->
