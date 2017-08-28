@@ -5,8 +5,7 @@
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
-
-
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="USS Infinity Studios" />
   <meta name="keywords" content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, WebVR Resume, virtual reality">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -19,20 +18,20 @@
 <a-scene>
   <a-assets>
     <!--3d models-->
-    <a-asset-item id="planet" src="models/planet2/scene.gltf"></a-asset-item>
-    <a-asset-item id="terminal" src="models/computer_terminal/scene.gltf"></a-asset-item>
-    <a-asset-item id="button" src="models/button/scene.gltf"></a-asset-item>
-    <a-asset-item id="comms" src="models/speaker/scene.gltf"></a-asset-item>
-    <a-asset-item id="crate2" src="models/crate2/scene.gltf"></a-asset-item>
-    <a-asset-item id="crate3" src="models/crate3/scene.gltf"></a-asset-item>
-    <a-asset-item id="door1" src="models/door/scene.gltf"></a-asset-item>
-    <a-asset-item id="door2" src="models/door2/scene.gltf"></a-asset-item>
-    <a-asset-item id="door3" src="models/scifiwall/scene.gltf"></a-asset-item>
-    <a-asset-item id="door4" src="models/door_model/scene.gltf"></a-asset-item>
-    <a-asset-item id="lightsPanel" src="models/lights_panel/scene.gltf"></a-asset-item>
-    <a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf"></a-asset-item>
-    <a-asset-item id="hudDisplay" src="models/hud_Display/scene.gltf"></a-asset-item>
-    <a-asset-item id="teleport" src="models/teleport/scene.gltf"></a-asset-item>
+    <a-asset-item id="planet" src="models/planet2/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="terminal" src="models/computer_terminal/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="button" src="models/button/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="comms" src="models/speaker/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="crate2" src="models/crate2/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="crate3" src="models/crate3/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="door1" src="models/door/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="door2" src="models/door2/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="door3" src="models/scifiwall/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="door4" src="models/door_model/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="lightsPanel" src="models/lights_panel/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="hudDisplay" src="models/hud_Display/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="teleport" src="models/teleport/scene.gltf" preload="auto"></a-asset-item>
 
     <!--images-->
     <img id="ground" src="textures/floor1.jpg">
@@ -244,10 +243,8 @@
 <!--Create prior missions functionality-->
 <!--http://talkerscode.com/webtricks/basic-image-slideshow-with-previous-and-next-button-using-jquery.php-->
 <!--why does it work only sporadickly-->
+<!--what can I do about loading the page faster or wait till everything is ready to show the page?-->
 
-<!--Review script with joel-->
-
-<!--Put audio in-->
 
 <!--Launch to github pages and test with friends and family-->
 
