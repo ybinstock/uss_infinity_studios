@@ -6,28 +6,25 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
   <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="USS Infinity Studios" />
-  <meta name="keywords" content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, WebVR Resume, virtual reality">
+  <meta name="description" content="USS Infinity Studios: WebVR Portfolio" />
+  <meta name="keywords"
+        content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, WebVR Resume, virtual reality, VR portfolio">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>USS Infinity Studios</title>
 </head>
 
 <body>
 
-
 <a-scene>
   <a-assets>
     <!--3d models-->
-    <a-asset-item id="planet" src="models/planet2/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="planet" src="models/planet3/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="terminal" src="models/computer_terminal/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="button" src="models/button/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="comms" src="models/speaker/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="crate2" src="models/crate2/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="crate3" src="models/crate3/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="door1" src="models/door/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="door2" src="models/door2/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="door3" src="models/scifiwall/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="door4" src="models/door_model/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="lightsPanel" src="models/lights_panel/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="hudDisplay" src="models/hud_Display/scene.gltf" preload="auto"></a-asset-item>
@@ -54,11 +51,10 @@
   <!--camera/cursor-->
   <a-entity position="0 0 -.7">
     <a-camera camera wasd-controls-enabled="false">
-      <a-entity cursor="fuse: true; fuseTimeout: 3500" position="0 0 -1"
+      <a-entity cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03;"
                 material="color: green; shader: flat;">
       </a-entity>
-
     </a-camera>
   </a-entity>
 
@@ -68,7 +64,7 @@
   <!--Planet-->
   <a-entity gltf-model-next="#planet" position="0 2 -8" scale=".001 .001 .001">
     <a-animation attribute="rotation"
-                 dur="50000"
+                 dur="100000"
                  fill="forwards"
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
@@ -97,18 +93,13 @@
       <a-plane src="#ceiling" height="10" width="10" rotation="90 0 0" position="0 4 0" repeat="5 5"></a-plane>
     </a-entity>
 
-    <a-entity gltf-model-next="#crate2" position="-4.2 -0.138 3.735" scale="0.008 0.008 0.008"></a-entity>
+    <a-entity gltf-model-next="#crate2" position="-4.2 0 0.2" scale="0.008 0.008 0.008"></a-entity>
 
     <a-entity gltf-model-next="#crate3" position="4.715 0 -0.41" scale="0.009 0.009 0.009"
               rotation="0 90 0"></a-entity>
 
-    <a-entity gltf-model-next="#door1" position="-5.08 0 2.012" scale="0.002 0.002 0.002"></a-entity>
-
     <a-entity gltf-model-next="#door3" position="0.003 -0.085 4.93"
               scale="0.012 0.01 0.01"></a-entity>
-
-    <a-entity gltf-model-next="#door4" position="4.481 -0.004 2.017"
-              scale="0.1 0.1 0.1"></a-entity>
 
     <a-entity gltf-model-next="#lightsPanel" position="-0.714 0.496 -1.0" scale=".45 .45 .45"
               rotation="90 80 0"></a-entity>
@@ -213,23 +204,18 @@
       <input type="hidden" id="img_no" value="0">
       <input type="hidden" id="url_no" value="0">
 
-
       <!--Next button-->
       <a-sphere color="green" position=".586 -1.03 .603" radius=".1" id="next_image" next-mission></a-sphere>
 
       <!--Previous button-->
       <a-sphere color="yellow" position=".396 -1.03 .603" radius=".1" id="previous_image" previous-listener></a-sphere>
 
-
     </a-entity>
-
 
   </a-entity>
 
-
 </a-scene>
 </body>
-
 </html>
 
 <!--examples-->
@@ -240,12 +226,9 @@
 <!--http://www.fromtexttospeech.com/-->
 
 <!--To do-->
-<!--Create prior missions functionality-->
 <!--http://talkerscode.com/webtricks/basic-image-slideshow-with-previous-and-next-button-using-jquery.php-->
-<!--why does it work only sporadickly-->
-<!--what can I do about loading the page faster or wait till everything is ready to show the page?-->
-
-
+<!--why does the link happen when you click the next button?-->
+<!--find a way that the audio doesn't play over each other-->
 <!--Launch to github pages and test with friends and family-->
 
 <!--Set live to www.ussinfinitystudios.yonibinstock.com-->

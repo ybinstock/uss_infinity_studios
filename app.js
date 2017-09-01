@@ -1,8 +1,8 @@
 var images = [
   "portfolio/img1.png", "portfolio/img2.png", "portfolio/img3.png", "portfolio/img4.png", "portfolio/img5.png",
-  "portfolio/img6.png", "portfolio/img7.png", "portfolio/img8.png", "portfolio/img9.png", "portfolio/img10.jpg",
-  "portfolio/img11.jpg", "portfolio/img12.jpg", "portfolio/img13.jpg", "portfolio/img14.jpg", "portfolio/img15.jpg",
-  "portfolio/img16.jpg", "portfolio/img17.jpg", "portfolio/img18.jpg", "portfolio/img19.jpg"
+  "portfolio/img6.png", "portfolio/img7.png", "portfolio/img8.png", "portfolio/img9.png", "portfolio/img10.png",
+  "portfolio/img11.png", "portfolio/img12.png", "portfolio/img13.png", "portfolio/img14.png", "portfolio/img15.png",
+  "portfolio/img16.png", "portfolio/img17.png", "portfolio/img18.png", "portfolio/img19.png"
 ];
 
 //how to have the url change for every image
@@ -19,7 +19,7 @@ var urls = [
   "https://play.google.com/store/apps/details?id=com.YoniBinstock.PrayerVR&hl=en", "https://youtu.be/uXa2tIzPXUc",
 ];
 
-//why isn't this workign without a hitch
+//why isn't this working without a hitch
 
 AFRAME.registerComponent('next-mission', {
 
@@ -34,8 +34,10 @@ AFRAME.registerComponent('next-mission', {
       if (next_val >= images.length) {
         next_val = 0;
       }
+      console.log('next');
+
       el.setAttribute('src', images[next_val]);
-      //el.setAttribute('onclick', location.href = urls[next_val]);
+      el.setAttribute('onclick', location.href = urls[next_val]);
       document.getElementById("img_no").value = next_val;
     });
 
@@ -54,8 +56,9 @@ AFRAME.registerComponent('previous-mission', {
       if (prev_val <= -1) {
         prev_val = images.length - 1;
       }
+      console.log('previous');
       el.setAttribute('src', images[prev_val]);
-      //el.setAttribute('onclick', location.href = urls[prev_val]);
+      el.setAttribute('onclick', location.href = urls[prev_val]);
       document.getElementById("img_no").value = prev_val;
     });
 
