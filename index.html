@@ -22,8 +22,8 @@
     <a-asset-item id="terminal" src="models/computer_terminal/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="button" src="models/button/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="comms" src="models/speaker/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="crate2" src="models/crate2/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="crate3" src="models/crate3/scene.gltf" preload="auto"></a-asset-item>
+    <!--<a-asset-item id="crate2" src="models/crate2/scene.gltf" preload="auto"></a-asset-item>-->
+    <!--<a-asset-item id="crate3" src="models/crate3/scene.gltf" preload="auto"></a-asset-item>-->
     <a-asset-item id="door3" src="models/scifiwall/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="lightsPanel" src="models/lights_panel/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf" preload="auto"></a-asset-item>
@@ -39,17 +39,26 @@
     <img id="sky" src="stars.jpg">
 
     <!--audio script-->
+
+    <!--compress all sound files-->
+
     <audio id="teleportation-script" src="audio/teleportation.mp3"></audio>
     <audio id="hyperdrive-script" src="audio/hyperdrive.mp3"></audio>
     <audio id="comms-script" src="audio/comms.mp3"></audio>
     <audio id="planet-info-script" src="audio/planet.mp3"></audio>
-    <audio id="lasers-script" src="audio/lasers.mp3"></audio>
-    <audio id="self-destruct-script" src="audio/destruct.mp3"></audio>
+    <audio id="lasers-script" src="audio/lasers.mp3" ></audio>
+    <audio id="self-destruct-script" src="audio/destruct.mp3" ></audio>
+
+    <audio id="alarm" src="audio/alarm.mp3"></audio>
+    <audio id="pulse" src="audio/pulse.mp3"></audio>
+    <audio id="space-sound" src="audio/space_sound.mp3"></audio>
 
   </a-assets>
 
+  <a-entity light="type: ambient; color: #CCC; intensity: .7;"></a-entity>
+
   <!--camera/cursor-->
-  <a-entity position="0 0 -.7">
+  <a-entity position="0 0 -.7" sound="src: #space-sound; autoplay: true; volume: 5">
     <a-camera camera wasd-controls-enabled="false">
       <a-entity cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03;"
@@ -93,10 +102,10 @@
       <a-plane src="#ceiling" height="10" width="10" rotation="90 0 0" position="0 4 0" repeat="5 5"></a-plane>
     </a-entity>
 
-    <a-entity gltf-model-next="#crate2" position="-4.2 0 0.2" scale="0.008 0.008 0.008"></a-entity>
+    <!--<a-entity gltf-model-next="#crate2" position="-4.2 0 0.2" scale="0.008 0.008 0.008"></a-entity>-->
 
-    <a-entity gltf-model-next="#crate3" position="4.715 0 -0.41" scale="0.009 0.009 0.009"
-              rotation="0 90 0"></a-entity>
+    <!--<a-entity gltf-model-next="#crate3" position="4.715 0 -0.41" scale="0.009 0.009 0.009"-->
+              <!--rotation="0 90 0"></a-entity>-->
 
     <a-entity gltf-model-next="#door3" position="0.003 -0.085 4.93"
               scale="0.012 0.01 0.01"></a-entity>
@@ -137,7 +146,9 @@
       </a-box>
       <a-entity gltf-model-next="#button" scale=".2 .2 .2" position="0 -.08 0"
                 sound__1="on: mouseenter; src: #hyperdrive-script;"
-                sound__2="on: click; src: #hyperdrive-script;"></a-entity>
+                sound__2="on: click; src: #hyperdrive-script;"
+                sound__3="on: mouseenter; src: #pulse;"
+                sound__4="on: click; src: #pulse;"></a-entity>
     </a-entity>
 
     <!--Comms-->
@@ -175,7 +186,7 @@
 
     <!--Commander Information-->
     <a-entity position="0 1. -1.5" class="cmndr">
-      <a-entity text="align: center; color:black;value: Captain Yoni Binstock\n @YoniBinstock\n ybinstock@gmail.com"
+      <a-entity text="align: center; color:black;value: Captain Yoni Binstock\n ybinstock@gmail.com"
                 position="0 -0.04 .15"></a-entity>
     </a-entity>
 
@@ -183,7 +194,9 @@
     <a-entity position="1.0 1.06 -2.07" class='self-destruct'>
       <a-box depth=".2" height=".1" width="0.15" color="black" position="0 -.13 0"
              sound__1="on: mouseenter; src: #self-destruct-script;"
-             sound__2="on: click; src: #self-destruct-script;"></a-box>
+             sound__2="on: click; src: #self-destruct-script;"
+             sound__3="on: click; src: #alarm;"
+             sound__4="on: click; src: #alarm;"></a-box>
 
       <a-box color="white" depth=".1" height=".1" width="0.3" rotation="-30 0 0" position="0 -.08 -.2">
         <a-entity text="align: center; color:black;value: Self Destruct" position="-.02 0 0.05"></a-entity>
@@ -205,10 +218,10 @@
       <input type="hidden" id="url_no" value="0">
 
       <!--Next button-->
-      <a-sphere color="green" position=".586 -1.03 .603" radius=".1" id="next_image" next-mission></a-sphere>
+      <a-sphere color="green" position=".748 -1.03 .603" radius=".1" id="next_image" next-mission></a-sphere>
 
       <!--Previous button-->
-      <a-sphere color="yellow" position=".396 -1.03 .603" radius=".1" id="previous_image" previous-listener></a-sphere>
+      <a-sphere color="yellow" position="-.7 -1.03 .603" radius=".1" id="previous_image" previous-mission></a-sphere>
 
     </a-entity>
 
