@@ -4,6 +4,7 @@
   <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <script src="app.js"></script>
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="USS Infinity Studios: WebVR Portfolio" />
@@ -26,9 +27,9 @@
     <!--<a-asset-item id="crate3" src="models/crate3/scene.gltf" preload="auto"></a-asset-item>-->
     <a-asset-item id="door3" src="models/scifiwall/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="lightsPanel" src="models/lights_panel/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf" preload="auto"></a-asset-item>
+    <!--<a-asset-item id="communicationTower" src="models/communication_tower/scene.gltf" preload="auto"></a-asset-item>-->
     <a-asset-item id="hudDisplay" src="models/hud_Display/scene.gltf" preload="auto"></a-asset-item>
-    <a-asset-item id="teleport" src="models/teleport/scene.gltf" preload="auto"></a-asset-item>
+    <!--<a-asset-item id="teleport" src="models/teleport/scene.gltf" preload="auto"></a-asset-item>-->
 
     <!--images-->
     <img id="ground" src="textures/floor1.jpg">
@@ -46,8 +47,8 @@
     <audio id="hyperdrive-script" src="audio/hyperdrive.mp3"></audio>
     <audio id="comms-script" src="audio/comms.mp3"></audio>
     <audio id="planet-info-script" src="audio/planet.mp3"></audio>
-    <audio id="lasers-script" src="audio/lasers.mp3" ></audio>
-    <audio id="self-destruct-script" src="audio/destruct.mp3" ></audio>
+    <audio id="lasers-script" src="audio/lasers.mp3"></audio>
+    <audio id="self-destruct-script" src="audio/destruct.mp3"></audio>
 
     <audio id="alarm" src="audio/alarm.mp3"></audio>
     <audio id="pulse" src="audio/pulse.mp3"></audio>
@@ -105,7 +106,7 @@
     <!--<a-entity gltf-model-next="#crate2" position="-4.2 0 0.2" scale="0.008 0.008 0.008"></a-entity>-->
 
     <!--<a-entity gltf-model-next="#crate3" position="4.715 0 -0.41" scale="0.009 0.009 0.009"-->
-              <!--rotation="0 90 0"></a-entity>-->
+    <!--rotation="0 90 0"></a-entity>-->
 
     <a-entity gltf-model-next="#door3" position="0.003 -0.085 4.93"
               scale="0.012 0.01 0.01"></a-entity>
@@ -116,12 +117,12 @@
     <a-entity gltf-model-next="#lightsPanel" position="0.674 0.496 -1.0" scale=".45 .45 .45"
               rotation="90 -80 0"></a-entity>
 
-    <a-entity gltf-model-next="#teleport" position="4.13 0 -3.182" scale="0.004 0.004 0.004"></a-entity>
+    <!--<a-entity gltf-model-next="#teleport" position="4.13 0 -3.182" scale="0.004 0.004 0.004"></a-entity>-->
 
     <a-entity gltf-model-next="#hudDisplay" position="-0.45 1 -1.25" scale="0.05 0.05 0.05"></a-entity>
 
-    <a-entity gltf-model-next="#communicationTower" position="-3.61 0 -2.68" scale="0.005 0.005 0.005"
-              rotation="0 90 0"></a-entity>
+    <!--<a-entity gltf-model-next="#communicationTower" position="-3.61 0 -2.68" scale="0.005 0.005 0.005"-->
+              <!--rotation="0 90 0"></a-entity>-->
   </a-entity>
 
   <!--Terminal-->
@@ -146,9 +147,8 @@
       </a-box>
       <a-entity gltf-model-next="#button" scale=".2 .2 .2" position="0 -.08 0"
                 sound__1="on: mouseenter; src: #hyperdrive-script;"
-                sound__2="on: click; src: #hyperdrive-script;"
-                sound__3="on: mouseenter; src: #pulse;"
-                sound__4="on: click; src: #pulse;"></a-entity>
+                sound__2="on: click; src: #hyperdrive-script;">
+      </a-entity>
     </a-entity>
 
     <!--Comms-->
@@ -186,8 +186,9 @@
 
     <!--Commander Information-->
     <a-entity position="0 1. -1.5" class="cmndr">
-      <a-entity text="align: center; color:black;value: Captain Yoni Binstock\n ybinstock@gmail.com"
-                position="0 -0.04 .15"></a-entity>
+      <a-entity
+        text="align: center; color:black;value: Plug in your headphones and click on the buttons \n to learn more about the ship"
+        position="0 -0.04 .15"></a-entity>
     </a-entity>
 
     <!--Self Destruct-->
@@ -208,14 +209,14 @@
 
       <!--Screen-->
       <a-entity>
-        <a-image src="portfolio/img1.png" id="slideshow_image" position="0.009 -0.832 0.283"
-                 rotation="-45 0 0" scale="1.2 0.8 1"
-                 onclick="location.href='http://ybinstock.github.io/carmensandiego_360/'"></a-image>
+        <a-image material="shader:gif;src:url(textures/UI-2.gif); opacity: .8" id="slideshow_image"
+                 position="0.009 -0.832 0.283"
+                 rotation="-45 0 0" scale="1.2 0.8 1'"></a-image>
       </a-entity>
-
-      <a-entity text="color:black;value:Prior Missions" position="0.374 -0.5 0.042" rotation="-45 0 0"></a-entity>
-      <input type="hidden" id="img_no" value="0">
-      <input type="hidden" id="url_no" value="0">
+      <!--portfolio/img1.png-->
+      <!--<a-entity text="color:black;value:USS WebVR" position="0.374 -0.5 0.042" rotation="-45 0 0"></a-entity>-->
+      <!--<input type="hidden" id="img_no" value="0">-->
+      <!--<input type="hidden" id="url_no" value="0">-->
 
       <!--Next button-->
       <a-sphere color="green" position=".748 -1.03 .603" radius=".1" id="next_image" next-mission></a-sphere>
@@ -229,6 +230,8 @@
 
 </a-scene>
 </body>
+
+<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
 </html>
 
 <!--examples-->
