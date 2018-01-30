@@ -6,10 +6,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script src="app.js"></script>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.ico">
   <meta name="description" content="USS Infinity Studios: WebVR Portfolio" />
   <meta name="keywords"
-        content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, WebVR Resume, virtual reality, VR portfolio">
+        content="Infinity Studios, WebVR Portfolio, WebVR, A-Frame, virtual reality,">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>USS Infinity Studios</title>
 </head>
@@ -36,16 +36,13 @@
     <img id="sky" src="stars.jpg">
 
     <!--audio script-->
-
-    <!--compress all sound files-->
-
     <audio id="teleportation-script" src="audio/teleportation.mp3"></audio>
     <audio id="hyperdrive-script" src="audio/hyperdrive.mp3"></audio>
     <audio id="comms-script" src="audio/comms.mp3"></audio>
     <audio id="planet-info-script" src="audio/planet.mp3"></audio>
     <audio id="lasers-script" src="audio/lasers.mp3"></audio>
-    <audio id="self-destruct-script" src="audio/destruct.mp3"></audio>
-
+    <audio id="self-destruct-script" src="audio/self-destruct.mp3"></audio>
+    <audio id="door-script" src="audio/door-script.mp3"></audio>
     <audio id="alarm" src="audio/alarm.mp3"></audio>
     <audio id="pulse" src="audio/pulse.mp3"></audio>
     <audio id="space-sound" src="audio/space_sound.mp3"></audio>
@@ -55,7 +52,7 @@
   <a-entity light="type: ambient; color: #CCC; intensity: .7;"></a-entity>
 
   <!--camera/cursor-->
-  <a-entity position="0 -.1 -.7" sound="src: #space-sound; autoplay: true; volume: 5">
+  <a-entity position="0 -.1 -.7" sound="src: #space-sound; autoplay: true; volume: 6">
     <a-camera camera wasd-controls-enabled="false">
       <a-entity cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03;"
@@ -100,7 +97,9 @@
     </a-entity>
 
     <a-entity gltf-model-next="#door3" position="0.003 -0.085 4.93"
-              scale="0.012 0.01 0.01"></a-entity>
+              scale="0.012 0.01 0.01" singleton-sound="src: #door-script;">
+
+    </a-entity>
 
     <a-entity gltf-model-next="#lightsPanel" position="-0.714 0.496 -1.0" scale=".45 .45 .45"
               rotation="90 80 0"></a-entity>
@@ -109,7 +108,6 @@
               rotation="90 -80 0"></a-entity>
 
     <a-entity gltf-model-next="#hudDisplay" position="-0.45 1 -1.25" scale="0.05 0.05 0.05"></a-entity>
-
 
   </a-entity>
 
@@ -154,9 +152,9 @@
       <a-box color="white" depth=".1" height=".1" width="0.3" color="white" rotation="-30 0 0" position="0 -.08 -.2">
         <a-entity text="align: center; color:black;value: Planet Info" position="-.02 0 0.05"></a-entity>
       </a-box>
-      <a-triangle scale=".2 .2 .2" rotation="-90 0 0" color="orange" position="0.1 -.08 .10"
+      <a-sphere radius=".1" rotation="-90 0 0" color="orange" position="0.1 -.16 .10"
                   singleton-sound="src: #planet-info-script;">
-      </a-triangle>
+      </a-sphere>
     </a-entity>
 
     <!--Lasers-->
@@ -189,7 +187,6 @@
         position="0 -0.04 .15"></a-entity>
     </a-entity>
 
-
     <!--Prior Missions-->
     <a-entity position="0 2 -3">
 
@@ -220,9 +217,16 @@
 <!--Text to voice software-->
 <!--http://www.fromtexttospeech.com/-->
 
-<!--To do-->
+<!--The self-destruct sequence has already been initiated just moments before your arrival by the captain of the ship.-->
+<!--There are currently 18 seconds left. 17. 16. 15. 14. I highly recommend you find a way off this ship. 12. 11.-->
+<!--Are you sure you don't want to die a painful death in the vacuum of space? 8. 7.-->
+<!--Oh. I see. All escape have pods have been jettisoned. 4. 3. 2. 1.-->
+<!--Hmmmm...This is awkward. It seems the self-destruct mechanism is no longer operable.-->
+<!--Congratulations. You are not dead. Yet.-->
 
-<!--Set live to www.ussinfinitystudios.yonibinstock.com-->
+<!--It would be cool to actually explode the ship.
+ Animate the different components including the camera in opposite directions-->
+<!--and then to fade to black (how to do this). Should I include audio affects of explosion or grasping for breath-->
 
-<!--Market and promote-->
 
+<!--Try the experience on my phone-->
