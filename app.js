@@ -22,3 +22,17 @@ AFRAME.registerComponent('singleton-sound', {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  if(AFRAME.utils.device.isMobile()) {
+    document.querySelector('#splash').style.display = 'flex';
+    document.querySelector('#splash').addEventListener('click', function () {
+      let sounds = document.querySelectorAll('audio');
+      sounds.forEach (function (sound) {
+        sound.play();
+        sound.pause();
+      })
+      this.style.display = 'none';
+    })
+  }
+});
